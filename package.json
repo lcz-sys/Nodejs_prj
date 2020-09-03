@@ -1,0 +1,24 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jQuery": "^1.7.4",
+    "jquery": "^1.9.1",
+    "mime": "^2.4.4",
+    "npm": "^6.13.4"
+  },
+  "devDependencies": {
+    "nienie": "^1.0.0",
+    "vue": "^2.6.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "a": "echo 666",
+    "start": "node ./mimeTest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

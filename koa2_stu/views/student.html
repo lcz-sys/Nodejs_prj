@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/zp-global.css" />
+  </head>
+
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      #add {
+        width: 300px;
+        height: 400px;
+        overflow: auto;
+        margin: auto;
+        /*border: 1px solid #000;*/
+        position: fixed;
+        /*top: 100px;*/
+        /*left: 500px;*/
+        z-index: 999;
+        background: #fff;
+        opacity: 1;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+      }
+
+      #add > form input.zp-input {
+        width: 150px;
+        display: inline-block;
+      }
+
+      #add > form label {
+        width: 50px;
+        text-align: center;
+        margin: 0 10px;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      #add .title {
+        height: 40px;
+        line-height: 40px;
+        background-color: rgb(248, 248, 248);
+        border-bottom: 1px solid #eee;
+        cursor: move;
+        margin-right: 30px;
+      }
+
+      #add .close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background-color: rgb(248, 248, 248);
+        border-bottom: 1px solid #eee;
+      }
+
+      #add .close:hover {
+        background: red;
+        cursor: pointer;
+      }
+
+      #add .ensure {
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+      }
+
+      table {
+        min-width: 920px;
+        border-spacing: 0px;
+      }
+
+      table th,
+      table td {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        overflow: auto;
+        display: inline-block;
+        text-align: center;
+        border: 1px solid gray;
+        margin: -1px 0 0 -1px;
+      }
+
+      #shade {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: #000;
+        opacity: 0.4;
+        z-index: 998;
+      }
+    </style>
+    <h1 align="center">欢迎回来: <span id="welcome"></span></h1>
+
+    <div id="shade" hidden></div>
+    <button
+      class="button add_button"
+      style="background-color: rgb(30,159,225);margin: 50px;"
+      onclick="location.href='/stu/add'"
+    >
+      添加学生
+    </button>
+    <button class="button btn-danger" onclick="location.href='/login'">
+      退出登录
+    </button>
+
+    <div id="app">
+      <div id="show">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>姓名</th>
+              <th>性别</th>
+              <th>年龄</th>
+              <th style="width: 300px">爱好</th>
+              <th style="width: 200px">创建日期</th>
+              <th style="width: 200px">操作</th>
+            </tr>
+          </thead>
+          <tbody id="append_place">
+            {{each msgs msg}}
+            <tr id="string_template">
+              <td>{{msg.id}}</td>
+              <td>{{msg.name}}</td>
+              <td>{{msg.gender}}</td>
+              <td>{{msg.age}}</td>
+              <td style="width: 300px">{{msg.hobbies}}</td>
+              <td style="width: 200px">{{msg.create_at}}</td>
+              <td style="width: 200px">
+                <button
+                  type="button"
+                  data-event="modify"
+                  class="btn btn-normal"
+                >
+                  修改
+                </button>
+                <button type="button" data-event="delete" class="btn btn-warm">
+                  删除
+                </button>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
